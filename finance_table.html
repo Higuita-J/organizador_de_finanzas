@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Finanzas Personales</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Gestión de Finanzas Personales</h1>
+            <div class="user-info">
+                <span id="user-name"></span>
+                <button onclick="logout()" class="logout-btn">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <h3>Dinero Disponible</h3>
+                <span class="amount" id="available-money">$0.00</span>
+            </div>
+            <div class="card">
+                <h3>Total Gastos</h3>
+                <span class="amount expense" id="total-expenses">$0.00</span>
+            </div>
+            <div class="card">
+                <h3>Total Ahorrado</h3>
+                <span class="amount savings" id="total-savings">$0.00</span>
+            </div>
+            <div class="card">
+                <h3>Saldo Restante</h3>
+                <span class="amount" id="remaining-balance">$0.00</span>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <h3>Agregar Ingreso</h3>
+                <div class="input-row">
+                    <input type="text" id="income-description" placeholder="Descripción del Ingreso">
+                    <input type="number" id="income-amount" placeholder="Ingresa la cantidad" step="0.01" min="0">
+                    <button onclick="addIncome()">Agregar Ingreso</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <h3>Agregar Gasto</h3>
+                <div class="input-row">
+                    <input type="text" id="expense-description" placeholder="Descripción del gasto">
+                    <input type="number" id="expense-amount" placeholder="Cantidad" step="0.01" min="0">
+                    <button onclick="addExpense()">Agregar Gasto</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <h3>Agregar Ahorro</h3>
+                <div class="input-row">
+                    <input type="text" id="savings-description" placeholder="Descripción del ahorro">
+                    <input type="number" id="savings-amount" placeholder="Cantidad" step="0.01" min="0">
+                    <button onclick="addSavings()">Agregar Ahorro</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tables-section">
+            <div class="table-container">
+                <h3>Ingresos</h3>
+                <table id="income-table">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="income-tbody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <h3>Gastos</h3>
+                <table id="expenses-table">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenses-tbody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <h3>Ahorros</h3>
+                <table id="savings-table">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="savings-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="reset-btn" onclick="resetAll()">🔄 Reiniciar Todo</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script-firebase.js"></script>
+</body>
+</html>

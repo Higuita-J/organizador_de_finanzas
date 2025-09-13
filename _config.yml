@@ -1,0 +1,35 @@
+# Configuración para GitHub Pages
+title: Finanzas Personales
+description: Aplicación web para gestionar tus finanzas personales con autenticación segura
+author: Tu Nombre
+email: tu-email@ejemplo.com
+
+# Configuración del sitio
+baseurl: ""
+url: "https://tuusuario.github.io"
+
+# Configuración de GitHub Pages
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Configuración de Jekyll
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Excluir archivos del build
+exclude:
+  - README.md
+  - .gitignore
+  - _config.yml
+  - server.py
+  - start_server.bat
+  - start_server.sh
+  - test-*.html
+  - GUIA_*.md
+  - SOLUCION_*.md
+
+# Incluir archivos estáticos
+include:
+  - _redirects

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Finanzas Personales</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Asegurar que la pantalla de registro se muestre */
+        #register-screen {
+            display: flex !important;
+        }
+        #success-screen {
+            display: none !important;
+        }
+    </style>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla de Registro -->
+        <div id="register-screen" class="auth-screen">
+            <div class="auth-container">
+                <h1>💰 Crear Cuenta</h1>
+                <p>Regístrate para comenzar a gestionar tus finanzas</p>
+                
+                <div class="auth-form">
+                    <input type="text" id="register-name" placeholder="Nombre completo" required>
+                    <input type="email" id="register-email" placeholder="Correo electrónico" required>
+                    <input type="password" id="register-password" placeholder="Contraseña (mín. 6 caracteres)" required>
+                    <button onclick="register()" class="auth-btn" type="button">Crear Cuenta</button>
+                    <button onclick="goToLogin()" class="auth-btn secondary" type="button">Ya tengo cuenta</button>
+                </div>
+                
+                <div id="register-error" class="error-message"></div>
+            </div>
+        </div>
+
+        <!-- Mensaje de éxito -->
+        <div id="success-screen" class="auth-screen" style="display: none;">
+            <div class="auth-container">
+                <h1>✅ ¡Cuenta Creada!</h1>
+                <p>Tu cuenta ha sido creada exitosamente</p>
+                <div class="test-info">Ahora puedes iniciar sesión con tus credenciales</div>
+                <button onclick="goToLogin()" class="auth-btn" type="button">Ir a Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script src="script-registro.js"></script>
+</body>
+</html>

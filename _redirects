@@ -1,0 +1,10 @@
+# Redirects para GitHub Pages
+# Esto asegura que las rutas funcionen correctamente
+
+# Redireccionar rutas sin .html a rutas con .html
+/login /login.html 200
+/registro /registro.html 200
+/finance_table /finance_table.html 200
+
+# Redireccionar index a la raíz
+/index.html / 200
